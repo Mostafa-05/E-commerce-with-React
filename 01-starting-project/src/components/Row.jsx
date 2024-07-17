@@ -3,7 +3,7 @@ import { faPhone,faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram, faYoutube } from '@fortawesome/free-brands-svg-icons';
 export default function Row(){
     return(
-        <div className="row text-white flex justify-between pl-4  bg-slate-800 text-center pt-4 pb-4 max-lg:hidden max-w-screen-2xl ">
+        <div className="row text-white flex justify-between pl-4 m-auto bg-slate-800 text-center pt-4 pb-4 max-lg:hidden max-w-full ">
             <div className="contact-info flex justify-around w-1/3">
                 <p>
                 <FontAwesomeIcon icon={faPhone} />
@@ -12,7 +12,7 @@ export default function Row(){
                 </p>
                 <p> 
                 <FontAwesomeIcon icon={faEnvelope} className="pl-2" />
-                <span className="pl-2 text-sm">michelle.rivera@example.com</span>
+                <span className="pl-2 text-sm">Tech-it-easy@gmail.com</span>
                 </p>
             </div>
             <div className="text w-1/3">

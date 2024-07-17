@@ -1,155 +1,202 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
 
-.burger{
-    width: 35px;
-    height: 25px;
-    position: relative;
-    cursor: pointer;
+@layer base {
+	:root {
+		--background: 0 0% 100%;
+		--foreground: 222.2 84% 4.9%;
+		--card: 0 0% 100%;
+		--card-foreground: 222.2 84% 4.9%;
+		--popover: 0 0% 100%;
+		--popover-foreground: 222.2 84% 4.9%;
+		--primary: 222.2 47.4% 11.2%;
+		--primary-foreground: 210 40% 98%;
+		--secondary: 210 40% 96.1%;
+		--secondary-foreground: 222.2 47.4% 11.2%;
+		--muted: 210 40% 96.1%;
+		--muted-foreground: 215.4 16.3% 46.9%;
+		--accent: 210 40% 96.1%;
+		--accent-foreground: 222.2 47.4% 11.2%;
+		--destructive: 0 84.2% 60.2%;
+		--destructive-foreground: 210 40% 98%;
+		--border: 214.3 31.8% 91.4%;
+		--input: 214.3 31.8% 91.4%;
+		--ring: 222.2 84% 4.9%;
+		--radius: 0.5rem;
+		--chart-1: 12 76% 61%;
+		--chart-2: 173 58% 39%;
+		--chart-3: 197 37% 24%;
+		--chart-4: 43 74% 66%;
+		--chart-5: 27 87% 67%;
+	}
 
- }
- .burger span{
-    background-color: black;
-    height: 4px;
-    width: 100%;
-    position: absolute;
-display: block;
-transition: ease 0.3s;
- }
- .burger span:nth-child(2){
-  top: 10px;
- }
- .burger span:last-child{
-top:20px;
- }
- .burger.click span:first-child{
-    transform: rotatez(45deg);
-    top: 50%;
- }
- .burger.click span:nth-child(2){
-    display: none;
- }
- .burger.click span:last-child{
-    transform: rotatez(-45deg);
-    top: 50%;
- }
- .li-small:hover{
+	.dark {
+		--background: 222.2 84% 4.9%;
+		--foreground: 210 40% 98%;
+		--card: 222.2 84% 4.9%;
+		--card-foreground: 210 40% 98%;
+		--popover: 222.2 84% 4.9%;
+		--popover-foreground: 210 40% 98%;
+		--primary: 210 40% 98%;
+		--primary-foreground: 222.2 47.4% 11.2%;
+		--secondary: 217.2 32.6% 17.5%;
+		--secondary-foreground: 210 40% 98%;
+		--muted: 217.2 32.6% 17.5%;
+		--muted-foreground: 215 20.2% 65.1%;
+		--accent: 217.2 32.6% 17.5%;
+		--accent-foreground: 210 40% 98%;
+		--destructive: 0 62.8% 30.6%;
+		--destructive-foreground: 210 40% 98%;
+		--border: 217.2 32.6% 17.5%;
+		--input: 217.2 32.6% 17.5%;
+		--ring: 212.7 26.8% 83.9%;
+		--chart-1: 220 70% 50%;
+		--chart-2: 160 60% 45%;
+		--chart-3: 30 80% 55%;
+		--chart-4: 280 65% 60%;
+		--chart-5: 340 75% 55%;
+	}
+}
 
-     transition:all 0.3s ease-in-out ;
-    }
-    .nav-ul
-    {
-    
-        position: relative;
-    }
-    .nav-ul.clicked{
-        
-    transition:all 0.7s ease-in-out ;
+@layer base {
+	* {
+		@apply border-border;
+	}
+	body {
+		@apply bg-background text-foreground;
+	}
 }
-.landing_img::after{
-position: absolute;
-content: "";
-width: 70%;
-height: 70%;
-background-color: white;
-top: 40%;
-left: 50%;
-transform: translate(-50%,-50%);
-border-radius: 50%;
-z-index: -1;
+
+/* the trash */
+body {
+	background-color: #eff3f6;
+	@apply font-outfit;
 }
-.landing_img::before{
-position: absolute;
-content: "";
-width: 10%;
-height: 10%;
-background-color: white;
-top: 16%;
-left: 7%;
-transform: translate(-50%,-50%);
-border-radius: 50%;
-z-index: -1;
+html {
+	@apply font-outfit;
 }
-.grapper{
-    padding-left: 40px;
-    padding-right: 40px;
-    padding-bottom: 30px;
+* {
+	scroll-behavior: smooth;
+}
+
+.li-small:hover {
+	transition: all 0.3s ease-in-out;
+}
+.nav-ul {
+	position: relative;
+}
+.nav-ul.clicked {
+	transition: all 0.7s ease-in-out;
+}
+.landing_img::after {
+	position: absolute;
+	content: "";
+	width: 70%;
+	height: 70%;
+	background-color: white;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	z-index: -1;
+}
+.landing_img::before {
+	position: absolute;
+	content: "";
+	width: 10%;
+	height: 10%;
+	background-color: white;
+	top: 16%;
+	left: 7%;
+	transform: translate(-50%, -50%);
+	border-radius: 50%;
+	z-index: -1;
+}
+.grapper {
+	padding-left: 40px;
+	padding-right: 40px;
+	padding-bottom: 30px;
 }
 /* companies auto scroll */
-.composlide{
-    width: 100%;
-    position: relative;
-    margin: auto;
-    overflow: hidden;
-    display: flex;
-   justify-content: end;
-   align-items: center;
-    }
-    .track{
-      width: calc(110px*12);
-      animation: scroll 20s linear infinite alternate-reverse;
-      display: flex;
-      padding: 30px 0;
-    }
-    .composlide .track img{
-       width: 50px;
-       height: 50px;
-        display: flex;
-        align-items: center;
-        margin: 0 30px;
-        object-fit: contain;
-    }
-    
-    .composlide::after,
-    .composlide::before{
-    
-      background:linear-gradient(to right,rgba(255,255,255,1)0%,
-      rgba(255,255,255,0)100%);
-      content: "";
-      height: 100%;
-      position: absolute;
-      width: 15%;
-      z-index:2;
-    }
-    .composlide::after{
-      right: 0;
-      top: 0;
-      transform: rotateZ(180deg);
-    }.composlide::before{
-      left: 0;
-      top: 0;
-    }
-    @keyframes scroll{
-      0%{
-        transform: translateX(0);
-      }
-    
-      100%{
-        transform: translateX(calc(-50px*9));
-      }
-    }
-    @media (max-width:767px) {
-        
-        .explore-container{
-            height: 900px;
-        }
-    }
-    .explore::after{
- content: "";
- position: absolute;
- width: 100%;
- height: 100%;
- background: rgba(45, 139, 192, 0.75);
- top: 0;
- left: 0;
- z-index: -1;
-    }
-    .footerEmail::placeholder{
-      transition: opacity 0.5s;
-      
-    }
-    .footerEmail:focus::placeholder{
-      opacity: 0;
-    }
+.composlide {
+	width: 100%;
+	position: relative;
+	margin: auto;
+	overflow: hidden;
+	display: flex;
+	justify-content: end;
+	align-items: center;
+}
+.track {
+	width: calc(110px * 12);
+	animation: scroll 20s linear infinite alternate-reverse;
+	display: flex;
+	padding: 30px 0;
+}
+.composlide .track img {
+	width: 50px;
+	height: 50px;
+	display: flex;
+	align-items: center;
+	margin: 0 30px;
+	object-fit: contain;
+}
+
+.composlide::after,
+.composlide::before {
+	content: "";
+	height: 100%;
+	position: absolute;
+	width: 15%;
+	z-index: 2;
+}
+.composlide::after {
+	right: 0;
+	top: 0;
+	transform: rotateZ(180deg);
+}
+.composlide::before {
+	left: 0;
+	top: 0;
+}
+@keyframes scroll {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(calc(-50px * 9));
+	}
+}
+@media (max-width: 767px) {
+	.explore-container {
+		height: 900px;
+	}
+}
+.exploreButton:hover {
+	background-color: white;
+	color: rgba(45, 139, 192, 0.75);
+
+	transition: ease-in-out all 0.3s;
+}
+.explore::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background: rgba(45, 139, 192, 0.75);
+	top: 0;
+	left: 0;
+	z-index: -1;
+}
+.footerEmail::placeholder {
+	transition: opacity 0.5s;
+}
+.footerEmail:focus::placeholder {
+	opacity: 0;
+}
+.product:hover button:first-child {
+	opacity: 1;
+	transition: all 0.5s ease-in-out;
+}

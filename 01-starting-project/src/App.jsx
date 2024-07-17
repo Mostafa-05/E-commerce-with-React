@@ -1,37 +1,26 @@
-import Nav from './components/Nav.jsx';
-import Row from '../src/components/row.jsx';
-import Landing from './components/Landing.jsx';
-import Companies from './components/Companies.jsx';
-import Explore from './components/Explore.jsx';
-import Products from './components/Products.jsx';
-import Featured from './components/Featured.jsx';
-import Services from './components/Services.jsx';
-import Posts from './components/Posts.jsx';
-import Footer from './components/Footer.jsx';
-import { Contxt } from './store/Context.jsx';
-import { useContext } from 'react';
-import Product from './components/Product.jsx';
+import { RouterProvider } from "react-router-dom";
+
+import router from "./router";
+import Context from "./store/Context";
+import { Toaster } from "react-hot-toast";
+import { store } from "./store/store";
+import { Provider, useDispatch, useSelector } from "react-redux";
+import { ApolloProvider } from "@apollo/client";
+import client from "./apolloClient";
 
 function App() {
-const Context=useContext(Contxt);
-
-    return(
- <>
-{Context.product?<Product/>:<>
-  <Row />
-<Nav/>
-<Landing/>
-<Companies/>
-<Explore />
-<Products />
-<Featured />
-<Services/>
-<Posts />
-<Footer/>
-</>
-}
-</>
-    )
+	return (
+		<>
+			<ApolloProvider client={client}>
+				<Provider store={store}>
+					<Context>
+						<RouterProvider router={router} />
+					</Context>
+					<Toaster />
+				</Provider>
+			</ApolloProvider>
+		</>
+	);
 }
 
 export default App;
